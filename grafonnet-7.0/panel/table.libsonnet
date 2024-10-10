@@ -129,6 +129,9 @@
         + { targets+: [
           target,
         ] },
-
+    addTransformation(transformation):: self {
+      transformations+: [transformation],
+    },
+    addTransformations(transformations):: std.foldl(function(p, t) p.addTransformation(t), transformations, self),
   },
 }
